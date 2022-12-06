@@ -6,9 +6,7 @@ from crop_image import *
 def extract_the_paper_from_image(image):
     paper = None
     gray_scale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite('./zz333.jpg',gray_scale) 
     edged = cv2.Canny(gray_scale, 75, 200)
-    cv2.imwrite('./zedge.jpg',edged) 
     contours, _ = cv2.findContours(edged,
                                    cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     if (len(contours) > 0):
