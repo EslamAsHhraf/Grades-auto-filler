@@ -7,9 +7,13 @@ from crop_image import *
 def get_student_answer(paper,threshold_value,bubble_size,number_of_columns,number_of_choices):
     # Get the gray scale paper 
     gray_scale_paper = cv2.cvtColor(paper,cv2.COLOR_BGR2GRAY)
+    cv2.imshow('image',gray_scale_paper)
+    cv2.waitKey(0)
 
     # Get binary paper
-    _,thresholded=cv2.threshold(gray_scale_paper,threshold_value,255, cv2.THRESH_BINARY_INV)
+    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+    cv2.imshow('image',thresholded)
+    cv2.waitKey(0)
 
     # Get the external contours
     pap_cnts,_=cv2.findContours(thresholded, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
