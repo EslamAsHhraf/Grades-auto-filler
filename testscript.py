@@ -1,21 +1,15 @@
-# Python code to demonstrate
-# to calculate difference
-# between adjacent elements in list
-
-
-# initialising _list
-ini_list = [5, 4, 89, 12, 32, 45]
-
-# printing iniial_list
-#print("intial_list", str(ini_list))
-
-# Calculating difference list
-diff_list = []
-for x, y in zip(ini_list[0::], ini_list[1::]):
-	print(x,y)
-	diff_list.append(y-x)
-
-print(ini_list[0::], ini_list[1::])
-# printing difference list
-#print ("difference list: ", str(diff_list))
-		
+xs_set=set()
+for cnt in question_cnts:
+    (x,y,w,h)=cv2.boundingRect(cnt)
+    if(all([ x-i not in xs_set and x+i not in xs_set for i in np.arange(0,5)])):
+        xs_set.add(x)
+number_of_bubbles=len(xs_set)
+xs=np.array(list(sorted(xs_set)))
+dist=np.append(xs[1:],xs[-1])-xs
+distance_set=set()
+for diff in dist:
+    if(all([ diff-i not in distance_set and diff+i not in distance_set for i in np.arange(0,5)])):
+        distance_set.add(diff)
+number_of_changes=len(distance_set)
+number_of_columns=(number_of_changes-1)//2+1
+number_of_choices=number_of_bubbles//number_of_columns

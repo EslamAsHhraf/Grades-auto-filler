@@ -4,14 +4,14 @@ import imutils
 from imutils import contours as imcnts
 from crop_image import *
 
-def get_student_answer(paper,threshold_value,bubble_size,number_of_columns,number_of_choices):
+def get_student_answer(paper,threshold_value,bubble_size):
     # Get the gray scale paper 
     gray_scale_paper = cv2.cvtColor(paper,cv2.COLOR_BGR2GRAY)
     cv2.imshow('image',gray_scale_paper)
     cv2.waitKey(0)
 
     # Get binary paper
-    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV)
+    _,thresholded=cv2.threshold(gray_scale_paper,threshold_value,255, cv2.THRESH_BINARY_INV)
     cv2.imshow('image',thresholded)
     cv2.waitKey(0)
 
@@ -36,6 +36,23 @@ def get_student_answer(paper,threshold_value,bubble_size,number_of_columns,numbe
     
     # Sort the contours from top to bottom
     question_cnts,_=imcnts.sort_contours(pre_question_cnts,method='top-to-bottom')
+
+    # Detect the number of choices and the number of columns
+    xs_set=set()
+    for cnt in question_cnts:
+        (x,y,w,h)=cv2.boundingRect(cnt)
+        if(all([ x-i not in xs_set and x+i not in xs_set for i in np.arange(0,5)])):
+            xs_set.add(x)
+    number_of_bubbles=len(xs_set)
+    xs=np.array(list(sorted(xs_set)))
+    dist=np.append(xs[1:],xs[-1])-xs
+    distance_set=set()
+    for diff in dist:
+        if(all([ diff-i not in distance_set and diff+i not in distance_set for i in np.arange(0,5)])):
+            distance_set.add(diff)
+    number_of_changes=len(distance_set)
+    number_of_columns=(number_of_changes-1)//2+1
+    number_of_choices=number_of_bubbles//number_of_columns
 
     # Get student answers
     answers=[]
