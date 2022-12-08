@@ -9,6 +9,6 @@ image= cv2.imread("omr.png")
 
 paper=extract_the_paper_from_image(image)
 
-answers=get_student_answer(paper,200,(15,50),1,5)
+answers=get_student_answer(paper,200,(15,50),3,5)
 
 print(answers,len(answers))

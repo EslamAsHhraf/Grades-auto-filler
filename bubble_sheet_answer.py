@@ -11,7 +11,7 @@ def get_student_answer(paper,threshold_value,bubble_size,number_of_columns,numbe
     cv2.waitKey(0)
 
     # Get binary paper
-    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV)
     cv2.imshow('image',thresholded)
     cv2.waitKey(0)
 
