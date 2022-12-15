@@ -15,9 +15,9 @@ for name in glob.glob('./testCases/*'):
 
     print(answers,len(answers))
 
-image= cv2.imread('omr.jpg') 
-paper=extract_the_paper_from_image(image)
-paper=extract_the_paper_from_image(paper)
-answers=get_student_answer(paper,150,(15,50))
+# image= cv2.imread('omr.jpg') 
+# paper=extract_the_paper_from_image(image)
+# paper=extract_the_paper_from_image(paper)
+# answers=get_student_answer(paper,150,(15,50))
 
-print(answers,len(answers))
+# print(answers,len(answers))

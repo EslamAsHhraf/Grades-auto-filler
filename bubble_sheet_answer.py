@@ -10,8 +10,11 @@ def get_student_answer(paper,threshold_value,bubble_size):
     cv2.imshow('image',gray_scale_paper)
     cv2.waitKey(0)
 
+    # Histogram Equalization
+    equalized_gray_scale_paper=cv2.equalizeHist(gray_scale_paper)
+
     # Get binary paper
-    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
+    _,thresholded=cv2.threshold(equalized_gray_scale_paper,30,255, cv2.THRESH_BINARY_INV)
     cv2.imshow('image',thresholded)
     cv2.waitKey(0)
 
