@@ -2,27 +2,15 @@ import cv2
 import numpy as np 
 from paper_extraction import *
 from bubble_sheet_answer import *
+import glob
 
-image= cv2.imread("omr.png") 
 
-paper=extract_the_paper_from_image(image)
+for name in glob.glob('./testCases/*'):
+    print(name)
+    image= cv2.imread(name) 
 
-answers=get_student_answer(paper,200,(15,50))
+    paper=extract_the_paper_from_image(image)
 
-print(answers,len(answers))
+    answers=get_student_answer(paper,200,(15,50))
 
-image= cv2.imread("mo3ed1.png") 
-
-paper=extract_the_paper_from_image(image)
-
-answers=get_student_answer(paper,200,(15,50))
-
-print(answers,len(answers))
-
-image= cv2.imread("omr2.png") 
-
-paper=extract_the_paper_from_image(image)
-
-answers=get_student_answer(paper,200,(15,50))
-
-print(answers,len(answers))
+    print(answers,len(answers))
