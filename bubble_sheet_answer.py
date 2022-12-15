@@ -4,6 +4,24 @@ import imutils
 from imutils import contours as imcnts
 from crop_image import *
 
+colors=[(255,0,0)
+,(0,255,0)
+,(0,0,255)
+,(0,255,255)
+,(255,255,0)
+,(0,0,255)
+,(0,255,255)
+,(255,0,255)
+,(192,192,192)
+,(128,128,128)
+,(128,0,0)
+,(128,128,0)
+,(0,128,0)
+,(128,0,128)
+,(0,128,128)
+,(0,0,128),
+       (255,215,0)]
+
 def get_student_answer(paper,threshold_value,bubble_size):
     # Get the gray scale paper 
     gray_scale_paper = cv2.cvtColor(paper,cv2.COLOR_BGR2GRAY)
@@ -64,8 +82,8 @@ def get_student_answer(paper,threshold_value,bubble_size):
     answers=[]
 
     # Iterate over each row
+    qs=0
     for (_,i) in enumerate(np.arange(0,len(question_cnts),number_of_columns*number_of_choices)):
-
         # Get all bubbles of the current row which has (number_of_columns) questions
         curr_row_cnts,_=imcnts.sort_contours(question_cnts[i:i+number_of_columns*number_of_choices])
         
@@ -74,6 +92,9 @@ def get_student_answer(paper,threshold_value,bubble_size):
 
             # Current Question answers
             curr_ques_cnts=curr_row_cnts[k:k+number_of_choices]
+            color1=colors[qs%len(colors)]
+            qs=qs+1
+            cv2.drawContours(paper,curr_ques_cnts,-1,color1, 1)
 
             bubbled=None
 
@@ -89,4 +110,6 @@ def get_student_answer(paper,threshold_value,bubble_size):
                     bubbled= (total, j)
 
             answers.append(chr(bubbled[1]+ord('A')))
+    cv2.imshow('image',paper)
+    cv2.waitKey(0)
     return answers
