@@ -47,15 +47,11 @@ def get_student_answer(paper,threshold_value,bubble_size):
     xs=np.array(list(sorted(xs_set)))
     dist=np.append(xs[1:],xs[-1])-xs
     distance_set=[]
-    number_of_columns=1
     for diff in dist:
         if(len(distance_set)==0 or all([ diff-i != distance_set[-1] and diff+i != distance_set[-1] for i in np.arange(0,5)])):
             distance_set.append(diff)
     distance_set.pop()
-    if(len(distance_set)>=3):
-        for i in range(1,len(distance_set)-1):
-            if(distance_set[i]>distance_set[i-1] and distance_set[i]>distance_set[i+1]):
-                number_of_columns=number_of_columns+1
+    number_of_columns=sum([x > distance_set[i] and x > distance_set[i+2] for i, x in enumerate(distance_set[1:-1])])+1
     number_of_choices=number_of_bubbles//number_of_columns
 
     # Get student answers
