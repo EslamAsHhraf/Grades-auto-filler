@@ -11,7 +11,7 @@ def get_student_answer(paper,threshold_value,bubble_size):
     cv2.waitKey(0)
 
     # Get binary paper
-    _,thresholded=cv2.threshold(gray_scale_paper,threshold_value,255, cv2.THRESH_BINARY_INV)
+    _,thresholded=cv2.threshold(gray_scale_paper,230,255, cv2.THRESH_BINARY_INV | cv2.THRESH_OTSU)
     cv2.imshow('image',thresholded)
     cv2.waitKey(0)
 
@@ -44,6 +44,7 @@ def get_student_answer(paper,threshold_value,bubble_size):
         if(all([ x-i not in xs_set and x+i not in xs_set for i in np.arange(0,5)])):
             xs_set.add(x)
     number_of_bubbles=len(xs_set)
+    print(number_of_bubbles)
     xs=np.array(list(sorted(xs_set)))
     dist=np.append(xs[1:],xs[-1])-xs
     distance_set=[]
@@ -53,6 +54,8 @@ def get_student_answer(paper,threshold_value,bubble_size):
     distance_set.pop()
     number_of_columns=sum([x > distance_set[i] and x > distance_set[i+2] for i, x in enumerate(distance_set[1:-1])])+1
     number_of_choices=number_of_bubbles//number_of_columns
+
+    print(number_of_columns,number_of_choices)
 
     # Get student answers
     answers=[]
