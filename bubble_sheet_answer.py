@@ -70,8 +70,9 @@ def get_student_answer(paper,imageName):
         peri = cv2.arcLength(cnt, True)
         ratio = 0.01
         approx = cv2.approxPolyDP(cnt, ratio*peri, True)
-        if(aspect_ratio>=0.8 and aspect_ratio<=1.2 and len(approx)>=4):
-            areas.append(cv2.contourArea(cnt))
+        curr_cnt_area=cv2.contourArea(cnt)
+        if(aspect_ratio>=0.8 and aspect_ratio<=1.2 and len(approx)>=4 and curr_cnt_area>30 and curr_cnt_area>1.5*peri):
+            areas.append(curr_cnt_area)
             pre_question_cnts.append(cnt)
 
     # Check if there are no contours
@@ -153,7 +154,7 @@ def get_student_answer(paper,imageName):
             # Get all bubbles of the current row which has (number_of_columns) questions
             curr_row_cnts_left,_=imcnts.sort_contours(question_cnts[i:i+number_of_conts])
             curr_row_cnts_right=()
-            if(is_cut):
+            if(is_cut and i+number_of_conts<len(question_cnts)):
                 curr_row_cnts_right,_=imcnts.sort_contours(question_cnts[i+number_of_conts:i+number_of_conts+number_of_choices])
             curr_row_cnts=curr_row_cnts_left+curr_row_cnts_right
             #print(curr_row_cnts)
@@ -190,6 +191,7 @@ def get_student_answer(paper,imageName):
     cv2.imwrite(os.path.join(dirname, imageName),temp)
 
     # Get Number Of Rows
+    number_of_rows=0
     x_sorted_conts,_=imcnts.sort_contours(question_cnts)
     (prev_x,_,bubble_width,__)=cv2.boundingRect(x_sorted_conts[0])
     for i,cnt in enumerate(x_sorted_conts):
@@ -200,14 +202,14 @@ def get_student_answer(paper,imageName):
         elif i+1==len(x_sorted_conts):
             number_of_rows=i+1
         prev_x=x
-    number_of_rows=number_of_rows//number_of_choices
+    number_of_rows=number_of_questions if not number_of_rows else number_of_rows//number_of_choices
 
     # Map The Given Answers To Real Ones
     cut_row=cut_row//(number_of_choices*number_of_columns)
     curr_cnt=0
     final_answers=[0] * number_of_questions
     for i in range(0,number_of_rows):
-        for j in range(0,number_of_columns-int(i>=cut_row and cut_row!=number_of_rows-1)):
+        for j in range(0,number_of_columns-int(i>=cut_row and is_cut)):
             #print(j*number_of_rows+i+1,curr_cnt+1,int(i>=cut_row and cut_row!=number_of_rows-1))
             final_answers[j*number_of_rows+i]=answers[curr_cnt]
             curr_cnt+=1
