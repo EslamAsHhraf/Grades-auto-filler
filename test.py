@@ -1,19 +1,23 @@
+import os
 import cv2
 import numpy as np 
 from paper_extraction import *
 from bubble_sheet_answer import *
 import glob
 
-
-for name in glob.glob('./testCases/*'):
+path='./testCases/'
+dir_list = os.listdir('./testCases/')
+for name in dir_list:
     print(name)
-    image= cv2.imread(name) 
+    image= cv2.imread(path+name) 
 
-    paper=extract_the_paper_from_image(image)
+    paper=extract_the_paper_from_image(image,name)
 
-    answers=get_student_answer(paper,200,(15,50))
+    answers=get_student_answer(paper,name)
 
-    print(answers,len(answers))
+    #print(answers,len(answers))
+    answers= [(i+1,j) for i,j in enumerate(answers)]
+    print(answers)
 
 # image= cv2.imread('omr2.png') 
 # paper=extract_the_paper_from_image(image)
