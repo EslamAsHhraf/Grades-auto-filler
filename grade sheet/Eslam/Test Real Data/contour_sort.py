@@ -7,10 +7,10 @@ def contour_sort(a, b):
     br_a = cv2.boundingRect(a)
     br_b = cv2.boundingRect(b)
 
-    if abs(br_a[1] - br_b[1]) <= 5:
-        return br_a[0] - br_b[0]
+    if abs(br_a[0] - br_b[0]) <= 5:
+        return br_a[1] - br_b[1]
 
-    return br_a[1] - br_b[1]
+    return br_a[0] - br_b[0]
 
 
 # sort counters left to right && bottom to top
