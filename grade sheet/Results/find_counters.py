@@ -78,6 +78,7 @@ def print_contours(img_final_bin,orignal_img):
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
     print(num_ver,num_hor,len(contours))
+    Path("contours").mkdir(parents=True, exist_ok=True)
     for col in range(num_ver-1):
         Path("contours/"+str(col)).mkdir(parents=True, exist_ok=True)
         for row in range(num_hor-1):
@@ -100,16 +101,3 @@ img_original = cv2.imread('../Walid/warpedGradesheet/2.jpg')
 # show_images([img_original], ['original'])
 
 
-## make image gray and make threshold on image
-img_output = cv2.cvtColor(img_original,cv2.COLOR_BGR2GRAY)
-img_output= cv2.adaptiveThreshold(img_output, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
-            cv2.THRESH_BINARY, 51, 4)
-# show_images([img_output], ['Warped'])
-cv2.imwrite('./Warped.jpg',img_output)
-
-img= img_output.copy()
-# show_images([img],['threshold image'])
-
-img_final=kernal(img=img)
-Path("contours").mkdir(parents=True, exist_ok=True)
-print_contours(img_final_bin=img_final,orignal_img=img)
