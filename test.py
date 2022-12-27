@@ -5,8 +5,8 @@ from paper_extraction import *
 from bubble_sheet_answer import *
 import glob
 
-path='./testCases/'
-dir_list = os.listdir('./testCases/')
+path='./testCases0/'
+dir_list = os.listdir('./testCases0/')
 for name in dir_list:
     print(name)
     image= cv2.imread(path+name) 
