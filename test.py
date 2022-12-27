@@ -5,22 +5,21 @@ from paper_extraction import *
 from bubble_sheet_answer import *
 import glob
 
-path='./testCases0/'
-dir_list = os.listdir('./testCases0/')
+path='./testCases/'
+dir_list = os.listdir(path)
 for name in dir_list:
-    print(name)
-    image= cv2.imread(path+name) 
+    try:
+        print(name)
+        
+        image= cv2.imread(path+name) 
 
-    paper=extract_the_paper_from_image(image,name)
+        paper=extract_the_paper_from_image(image,name)
 
-    answers=get_student_answer(paper,name)
-
-    #print(answers,len(answers))
-    answers= [(i+1,j) for i,j in enumerate(answers)]
-    print(answers)
-
-# image= cv2.imread('omr2.png') 
-# paper=extract_the_paper_from_image(image)
-# answers=get_student_answer(paper,150,(15,50))
-
-# print(answers,len(answers))
+        answers=get_student_answer(paper,name)
+        answers= [(i+1,j) for i,j in enumerate(answers)]
+        f = open(path+"answers/"+os.path.splitext(name)[0]+".txt", "a")
+        for ans in answers:
+            f.write("%s\n" % ':'.join((str(ans[0]),ans[1])))
+        f.close()
+    except:
+        print("error hena")
