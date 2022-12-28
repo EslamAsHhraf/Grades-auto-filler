@@ -97,7 +97,7 @@ def print_contours(img_final_bin,orignal_img):
 ####################################### Main ##########################################################
 
 ## Read image
-img_original = cv2.imread('../Walid/warpedGradesheet/2.jpg')
+img_original = cv2.imread('../Walid/warpedImgs/2.jpg')
 # show_images([img_original], ['original'])
 
 

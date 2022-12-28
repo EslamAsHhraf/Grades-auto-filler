@@ -10,7 +10,7 @@ from Fix_Image_Orientation import *
 from find_counters import *
 from pathlib import Path
 ####################################### Main ##########################################################
-img_original = cv2.imread('../Walid/imgs/2.jpg')
+warpedImgs = cv2.imread('../Walid/imgs/6.jpg')
 Image_Orientation_output =Image_Orientation(img_original=img_original)
 
 
@@ -23,4 +23,4 @@ img= img_output.copy()
 
 img_final=kernal(img=img)
 
-print_contours(img_final_bin=img_final,orignal_img=img)
+print_contours(img_final_bin=img_final,orignal_img=Image_Orientation_output)
