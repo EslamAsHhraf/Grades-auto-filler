@@ -78,7 +78,6 @@ def print_contours(img_final_bin,orignal_img):
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
     print(num_ver,num_hor,len(contours))
-    Path("contours").mkdir(parents=True, exist_ok=True)
     for col in range(num_ver-1):
         Path("contours/"+str(col)).mkdir(parents=True, exist_ok=True)
         for row in range(num_hor-1):
@@ -95,9 +94,4 @@ def print_contours(img_final_bin,orignal_img):
             
 
 ####################################### Main ##########################################################
-
-## Read image
-img_original = cv2.imread('../Walid/warpedImgs/2.jpg')
-# show_images([img_original], ['original'])
-
 
