@@ -8,7 +8,7 @@ from find_counters import *
 import shutil
 import os
 ####################################### Main ##########################################################
-warpedImgs = cv2.imread('../Walid/imgs/1.jpg')
+warpedImgs = cv2.imread('../Walid/imgs/9.jpg')
 if( os.path.isdir('./contours')):
     shutil.rmtree('./contours')
 

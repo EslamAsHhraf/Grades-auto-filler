@@ -55,7 +55,7 @@ def deatact_Vertical_lines(img):
     img=np.invert(img)
     kernel_length = np.array(img).shape[1]//20
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 3))
-    img = cv2.erode(img, kernel, iterations=2)
+    img = cv2.erode(img, kernel, iterations=1)
     hori_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_length, 1))
     horizontal_lines_img = cv2.erode(img, hori_kernel, iterations=2)
     horizontal_lines_img = cv2.dilate(horizontal_lines_img, hori_kernel, iterations=6)
@@ -239,7 +239,7 @@ def detact_symbols(sheet,row,col):
         return
     result=detact_square(img=img)
     if(result!=-1):
-        sheet.write(row, col, result)
+        sheet.write(row, col,'square '+ str(result))
         return
     result=detect_question_mark(img=img)
     if(result):
@@ -253,11 +253,11 @@ def detact_symbols(sheet,row,col):
         return
     result=deatact_Vertical_lines(img=img)
     if(result!=-1):
-        sheet.write(row, col,result)
+        sheet.write(row, col,'Vertical_lines '+ str(result))
         return
     result=deatact_Horizontal_lines(img=img)
     if(result!=-1):
-        sheet.write(row, col,result)
+        sheet.write(row, col,'Horizontal_lines '+ str(result))
         return
   
     sheet.write(row, col,'undefined')
