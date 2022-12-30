@@ -212,7 +212,7 @@ def detect_question_mark(img):
     lines_ver = cv2.HoughLinesP(img,1,np.pi/300,threshold=25,maxLineGap=15)
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, rows/8,
                                param1=30, param2= 10,
-                               minRadius=10, maxRadius=20)
+                               minRadius=6, maxRadius=25)
 
     if circles is None:
         rows+=1
