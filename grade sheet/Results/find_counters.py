@@ -7,7 +7,9 @@ from scipy.ndimage import interpolation as inter
 from contour_sort import *
 from commonfunctions import *
 from pathlib import Path
-
+from detact_numbers_ocr import *
+import xlwt
+from detact_symbols import *
 
 def kernal (img):
     
@@ -78,9 +80,32 @@ def print_contours(img_final_bin,orignal_img):
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
     print(num_ver,num_hor,len(contours))
-    for col in range(num_ver-1):
+    wb = xlwt.Workbook()
+    sheet = wb.add_sheet('Sheet 15',cell_overwrite_ok=True)
+    ########### ID 
+    for col in range(0,1):
+        sheet.write(0, col, "CODE")
         Path("contours/"+str(col)).mkdir(parents=True, exist_ok=True)
-        for row in range(num_hor-1):
+        for row in range(1,num_hor-1):
+            # Returns the location and width,height for every contour
+            x1, y1, w1, h1 = cv2.boundingRect(contours[row+num_hor*col])
+            x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
+            x3, y3, w3, h3 = cv2.boundingRect(contours[row+num_hor*col+num_hor+1])
+       
+            #if (w>10 and h>0 and h <300 and w<1000 ):
+            new_img = orignal_img[y1+h1:y3, x2+w2:x3]
+           
+            ID=detact_digit_ocr(img=new_img)
+            sheet.write(row, col, ID)
+            cv2.imwrite('./contours/'+str(col)+'/'+str(row)+'.jpg',new_img)
+
+    ########### digit
+    for col in range(3,4):
+        sheetCol=col-2
+        sheet.write(0, sheetCol, sheetCol)
+        
+        Path("contours/"+str(sheetCol)).mkdir(parents=True, exist_ok=True)
+        for row in range(1,num_hor-1):
             # Returns the location and width,height for every contour
             x1, y1, w1, h1 = cv2.boundingRect(contours[row+num_hor*col])
             x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
@@ -88,10 +113,30 @@ def print_contours(img_final_bin,orignal_img):
         
             #if (w>10 and h>0 and h <300 and w<1000 ):
             new_img = orignal_img[y1+h1:y3, x2+w2:x3]
+            digit=detact_digit_ocr(img=new_img)
+            sheet.write(row, sheetCol, digit)
+            
+            cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
+
+    ########### symbols 
+    for col in range(4,num_ver-1):
+        sheetCol=col-2
+        sheet.write(0, sheetCol, sheetCol)
+        Path("contours/"+str(sheetCol)).mkdir(parents=True, exist_ok=True)
+        for row in range(1,num_hor-1):
+            # Returns the location and width,height for every contour
+            x1, y1, w1, h1 = cv2.boundingRect(contours[row+num_hor*col])
+            x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
+            x3, y3, w3, h3 = cv2.boundingRect(contours[row+num_hor*col+num_hor+1])
+           
+            #if (w>10 and h>0 and h <300 and w<1000 ):
+            new_img = orignal_img[y1+h1:y3, x2+w2:x3]
+            cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
+            detact_symbols(sheet=sheet,row=row,col=sheetCol)
             
             
-            cv2.imwrite('./contours/'+str(col)+'/'+str(row)+'.jpg',new_img)
-            
+    
+    wb.save('image 15.xls')
 
 ####################################### Main ##########################################################
 

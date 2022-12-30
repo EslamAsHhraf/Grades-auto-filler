@@ -1,16 +1,17 @@
 ## import nessary library
 
 import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.ndimage import interpolation as inter
 from contour_sort import *
 from commonfunctions import *
 from Fix_Image_Orientation import *
 from find_counters import *
-from pathlib import Path
+import shutil
+import os
 ####################################### Main ##########################################################
 warpedImgs = cv2.imread('../Walid/imgs/1.jpg')
+if( os.path.isdir('./contours')):
+    shutil.rmtree('./contours')
+
 Image_Orientation_output =Image_Orientation(img_original=warpedImgs)
 
 
