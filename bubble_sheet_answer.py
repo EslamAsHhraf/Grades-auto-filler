@@ -32,26 +32,18 @@ def get_student_answer(paper,imageName):
     cv2.imwrite(os.path.join(dirname, imageName),gray_scale_paper)
 
     # Get binary paper
-    thresholded=cv2.adaptiveThreshold(gray_scale_paper, 255, cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV, 51, 5)
+    thresholded=cv2.adaptiveThreshold(gray_scale_paper, 255, cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV, 73, 5)
     dirname = 'adaptive thresholded images'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),thresholded)
 
-    # # Make Morphological Operation (Opening To Spilit Bubbles From Each Others)
-    # thresholded=cv2.morphologyEx(thresholded, cv2.MORPH_OPEN, np.ones((2,2)))
-    # dirname = 'after opening'
-    # if not os.path.isdir(f'./{dirname}'):
-    #     os.mkdir(dirname)
-    # cv2.imwrite(os.path.join(dirname, imageName),thresholded)
-
-    # thresholded = cv2.dilate(thresholded,np.ones((2,2)),iterations = 1)
-
-    # # Make Morphological Operation (Dilation To Strengthen the bubbles border)
-    # dirname = 'after dilation'
-    # if not os.path.isdir(f'./{dirname}'):
-    #     os.mkdir(dirname)
-    # cv2.imwrite(os.path.join(dirname, imageName),thresholded)
+    # Get The Eroded Image To Be Used In Calculations Of Answers
+    eroded=cv2.erode(thresholded,np.ones((5,5)),iterations=1)
+    dirname = 'eroded images'
+    if not os.path.isdir(f'./{dirname}'):
+        os.mkdir(dirname)
+    cv2.imwrite(os.path.join(dirname, imageName),eroded)
 
     #Get Average Area
     areas=[]
@@ -168,20 +160,26 @@ def get_student_answer(paper,imageName):
                 qs=qs+1
                 cv2.drawContours(temp,curr_ques_cnts,-1,color1, 5)
 
-                bubbled=None
-
-                for (j,c) in enumerate(curr_ques_cnts):
+                mask_ones=[]
+                bubbles=[]
+                for j,c in enumerate(curr_ques_cnts):
 
                     # Get the maximum shaded bubble
                     mask = np.zeros(thresholded.shape, dtype="uint8")
                     cv2.drawContours(mask, [c], -1, 255, -1)
-                    mask= cv2.bitwise_and(thresholded, mask)
+                    mask_ones.append(cv2.countNonZero(mask))
+                    mask= cv2.bitwise_and(eroded, mask)
                     total= cv2.countNonZero(mask)
-
-                    if bubbled is None or total > bubbled[0]:
-                        bubbled= (total, j)
-
-                answers.append(chr(bubbled[1]+ord('A')))
+                    bubbles.append(total)
+                bubbled=None
+                count_chosen=0
+                mask_mean=np.mean(mask_ones)
+                for j,total in enumerate(bubbles):
+                    if (total>=mask_mean*.2):
+                        bubbled= j
+                        count_chosen+=1
+                final_ans=(ord('X')-ord('A')) if(count_chosen!=1) else bubbled
+                answers.append(chr(final_ans+ord('A')))
     
     # Draw The Questions Contours
 
