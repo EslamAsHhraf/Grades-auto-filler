@@ -134,22 +134,21 @@ def get_student_answer(paper,imageName):
         # Get student answers
         answers=[]
 
+        temp_number_of_columns=number_of_columns
         # Iterate over each row
-        for (_,i) in enumerate(np.arange(0,len(question_cnts),number_of_columns*number_of_choices)):
+        i=0
+        while (i<len(question_cnts)):
             
             # detect number of contours in row
             if(not is_cut):
-                is_cut=detect_number_of_contours(question_cnts[i:i+number_of_columns*number_of_choices])
+                is_cut=detect_number_of_contours(question_cnts[i:i+temp_number_of_columns*number_of_choices])
+                if(is_cut):
+                    temp_number_of_columns-=1
                 cut_row=i
-            number_of_conts=(number_of_columns-is_cut)*number_of_choices
+            number_of_conts=temp_number_of_columns*number_of_choices
 
             # Get all bubbles of the current row which has (number_of_columns) questions
-            curr_row_cnts_left,_=imcnts.sort_contours(question_cnts[i:i+number_of_conts])
-            curr_row_cnts_right=()
-            if(is_cut and i+number_of_conts<len(question_cnts)):
-                curr_row_cnts_right,_=imcnts.sort_contours(question_cnts[i+number_of_conts:i+number_of_conts+number_of_choices])
-            curr_row_cnts=curr_row_cnts_left+curr_row_cnts_right
-            #print(curr_row_cnts)
+            curr_row_cnts,_=imcnts.sort_contours(question_cnts[i:i+number_of_conts])
             
             # Iterate over each question
             for k in np.arange(0,len(curr_row_cnts),number_of_choices):
@@ -183,6 +182,7 @@ def get_student_answer(paper,imageName):
                     count_chosen=((total-bubbles)<=0.15).sum()
                 final_ans=(ord('X')-ord('A')) if(count_chosen!=1) else bubbled
                 answers.append(chr(final_ans+ord('A')))
+            i+=(temp_number_of_columns*number_of_choices)
     
     # Draw The Questions Contours
 
