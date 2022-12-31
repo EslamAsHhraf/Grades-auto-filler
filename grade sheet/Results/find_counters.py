@@ -9,6 +9,7 @@ from detact_numbers_ocr import *
 import xlwt
 from detact_symbols import *
 from detect_handwritten_digits import *
+from detect_handwritten_ID import *
 
 def kernal (img):
     
@@ -75,7 +76,6 @@ def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, lo
     ## get nymber of rows and columns
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
-    print(num_ver,num_hor,len(contours))
     wb = xlwt.Workbook()
     sheet = wb.add_sheet('Sheet 15',cell_overwrite_ok=True)
     badBG = xlwt.Pattern()
@@ -96,9 +96,12 @@ def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, lo
             ## crop image
             new_img = orignal_img[y1+h1:y3, x2+w2:x3]
             cv2.imwrite('./contours/'+str(col)+'/'+str(row)+'.jpg',new_img)
-            ID=detact_digit_ocr(row=row,col=col)
+            ID=000
+            if(OCR_flag):
+                ID=detact_digit_ocr(row=row,col=col)
+            else:
+                ID=detect_id(row=row,col=col,loaded_svc=loaded_svc, loaded_knn=loaded_knn, loaded_rf=loaded_rf, loaded_lr=loaded_lr)
             sheet.write(row, col, ID)
-            
 
     ########### digit
     for col in range(3,4):
@@ -119,6 +122,8 @@ def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, lo
             digit=0000
             if(OCR_flag):
                 digit=detact_digit_ocr(row=row,col=sheetCol)
+                if(len(digit)>0):
+                    digit=digit[0]
             else:
                 digit=detect_digit(row=row,col=sheetCol,loaded_svc=loaded_svc, loaded_knn=loaded_knn, loaded_rf=loaded_rf, loaded_lr=loaded_lr)
             sheet.write(row, sheetCol, digit)
@@ -142,7 +147,7 @@ def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, lo
             cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
             detact_symbols(sheet=sheet,row=row,col=sheetCol,badFontStyle=badFontStyle)
 
-    wb.save('image 15.xls')
+    wb.save('resulte Grades sheet.xls')
 
-####################################### Main ##########################################################
+
 

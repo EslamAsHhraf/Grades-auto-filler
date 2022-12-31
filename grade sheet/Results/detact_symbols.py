@@ -211,7 +211,7 @@ def detect_check_mark(img):
     # Filter Question Mark
     is_question_mark = cv2.HoughLinesP(img,1,np.pi/300,threshold=28,maxLineGap=15)
     if(is_question_mark is None):
-        #print(f'{num} Failed With Filter Question Mark')
+      
         return False
     
     # Filter Squares
@@ -219,7 +219,7 @@ def detect_check_mark(img):
     img_copy=thin(img_copy,1000000000).astype(np.uint8)
     img_copy*=255
     if(filter_squares_from_check_mark(img) or filter_squares_from_check_mark(img_copy)):
-         #print(f'{num} Failed With Filter Squares')
+         
         return False
     
     lines = cv2.HoughLinesP(img,1,np.pi/300,threshold=5,maxLineGap=10)
@@ -240,7 +240,7 @@ def detect_check_mark(img):
     # Filter Check Mark
     if(not len(pos_ang) or not len(neg_ang)):
         if(len(slopes)<2):
-            #print(f'{num} Failed With Filter Check Marks')
+           
             return False
         right_line = np.amax(slopes)
         left_line = np.amin(slopes)
@@ -256,6 +256,7 @@ def detect_check_mark(img):
 
 ####################### deatact question mark ####################
 
+## find biggest contour
 def biggest_contour(contours):
     biggest = np.array([])
     max_peri = 0
@@ -268,13 +269,17 @@ def biggest_contour(contours):
 
 def detect_question_mark(img):
     img = cv2.bilateralFilter(img, 20, 30, 30)
+
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     img= cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
              cv2.THRESH_BINARY_INV, 51, 15)
     img=skeletonize(img,method='lee')
 
+
     rows = img.shape[0]
+
+
     circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, rows/8,
                                param1=30, param2= 10,
                                minRadius=7, maxRadius=20)
@@ -288,11 +293,12 @@ def detect_question_mark(img):
         contours = sorted(pap_cnts, key=cv2.contourArea, reverse=True)
         cnt = biggest_contour(contours[:])
         (x,y,w,h)=cv2.boundingRect(cnt)
+        aspect_ratio=w/h
         peri = cv2.arcLength(cnt, True)
         if(cv2.contourArea(cnt)<1.5*peri and 1.5*peri<550):
-            return True
+            return True;
         
-    return False
+    return False;
 
 ########################## detact symbols #######################
 def detact_symbols(sheet,row,col,badFontStyle):

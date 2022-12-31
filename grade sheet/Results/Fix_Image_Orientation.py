@@ -56,8 +56,6 @@ def Image_Orientation(img_original):
     # Output image size
     width = max(int(bottom_width), int(top_width))
     height = max(int(right_height), int(left_height))
-    print(width)
-    print(height)
     # Points with new Coordinates 
     converted_points = np.float32([[0, 0], [width, 0], [0, height], [width, height]])
 
