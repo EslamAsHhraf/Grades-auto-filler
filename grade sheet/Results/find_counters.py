@@ -2,14 +2,13 @@
 
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
-from scipy.ndimage import interpolation as inter
 from contour_sort import *
 from commonfunctions import *
 from pathlib import Path
 from detact_numbers_ocr import *
 import xlwt
 from detact_symbols import *
+from detect_handwritten_digits import *
 
 def kernal (img):
     
@@ -50,11 +49,7 @@ def kernal (img):
   
     cv2.imwrite('./kernal/horizontal_lines_img.jpg',horizontal_lines_img)
 
-
-    alpha = 0.5
-    beta = 1.0 - alpha
-
-    # This function helps to add two image with specific weight parameter to get a third image as summation of two image.
+    # This function helps to add two image with specific weight parameter to get a third image as and of two image.
     img_final_bin=cv2.bitwise_and(verticle_lines_img, horizontal_lines_img)
     img_final_bin = cv2.erode(~img_final_bin, kernel, iterations=1)
     
@@ -64,7 +59,7 @@ def kernal (img):
 
     return img_output
 
-def print_contours(img_final_bin,orignal_img):
+def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, loaded_lr,OCR_flag):
     contours = cv2.findContours(img_final_bin, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
     contours = sorted_counter(contours)
     rows=[]
@@ -76,13 +71,19 @@ def print_contours(img_final_bin,orignal_img):
         else:
             rows.append(y1)
             break
-   
+    
+    ## get nymber of rows and columns
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
     print(num_ver,num_hor,len(contours))
     wb = xlwt.Workbook()
     sheet = wb.add_sheet('Sheet 15',cell_overwrite_ok=True)
-    ########### ID 
+    badBG = xlwt.Pattern()
+    badBG.pattern = badBG.SOLID_PATTERN
+    badBG.pattern_fore_colour = 2
+    badFontStyle = xlwt.XFStyle()
+    badFontStyle.pattern = badBG
+    ########### ID
     for col in range(0,1):
         sheet.write(0, col, "CODE")
         Path("contours/"+str(col)).mkdir(parents=True, exist_ok=True)
@@ -92,12 +93,12 @@ def print_contours(img_final_bin,orignal_img):
             x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
             x3, y3, w3, h3 = cv2.boundingRect(contours[row+num_hor*col+num_hor+1])
        
-            #if (w>10 and h>0 and h <300 and w<1000 ):
+            ## crop image
             new_img = orignal_img[y1+h1:y3, x2+w2:x3]
-           
-            ID=detact_digit_ocr(img=new_img)
-            sheet.write(row, col, ID)
             cv2.imwrite('./contours/'+str(col)+'/'+str(row)+'.jpg',new_img)
+            ID=detact_digit_ocr(row=row,col=col)
+            sheet.write(row, col, ID)
+            
 
     ########### digit
     for col in range(3,4):
@@ -110,32 +111,37 @@ def print_contours(img_final_bin,orignal_img):
             x1, y1, w1, h1 = cv2.boundingRect(contours[row+num_hor*col])
             x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
             x3, y3, w3, h3 = cv2.boundingRect(contours[row+num_hor*col+num_hor+1])
-        
-            #if (w>10 and h>0 and h <300 and w<1000 ):
+            
+            ## crop image
             new_img = orignal_img[y1+h1:y3, x2+w2:x3]
-            digit=detact_digit_ocr(img=new_img)
+            cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
+            
+            digit=0000
+            if(OCR_flag):
+                digit=detact_digit_ocr(row=row,col=sheetCol)
+            else:
+                digit=detect_digit(row=row,col=sheetCol,loaded_svc=loaded_svc, loaded_knn=loaded_knn, loaded_rf=loaded_rf, loaded_lr=loaded_lr)
             sheet.write(row, sheetCol, digit)
             
-            cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
+           
 
-    ########### symbols 
+    ########### symbols
     for col in range(4,num_ver-1):
         sheetCol=col-2
         sheet.write(0, sheetCol, sheetCol)
         Path("contours/"+str(sheetCol)).mkdir(parents=True, exist_ok=True)
         for row in range(1,num_hor-1):
+
             # Returns the location and width,height for every contour
             x1, y1, w1, h1 = cv2.boundingRect(contours[row+num_hor*col])
             x2, y2, w2, h2 = cv2.boundingRect(contours[row+1+num_hor*col])
             x3, y3, w3, h3 = cv2.boundingRect(contours[row+num_hor*col+num_hor+1])
            
-            #if (w>10 and h>0 and h <300 and w<1000 ):
+            ## crop image
             new_img = orignal_img[y1+h1:y3, x2+w2:x3]
             cv2.imwrite('./contours/'+str(sheetCol)+'/'+str(row)+'.jpg',new_img)
-            detact_symbols(sheet=sheet,row=row,col=sheetCol)
-            
-            
-    
+            detact_symbols(sheet=sheet,row=row,col=sheetCol,badFontStyle=badFontStyle)
+
     wb.save('image 15.xls')
 
 ####################################### Main ##########################################################
