@@ -39,7 +39,7 @@ def get_student_answer(paper,imageName):
     cv2.imwrite(os.path.join(dirname, imageName),thresholded)
 
     # Get The Eroded Image To Be Used In Calculations Of Answers
-    eroded=cv2.erode(thresholded,np.ones((5,5)),iterations=1)
+    eroded=cv2.erode(thresholded,np.ones((3,3)),iterations=1)
     dirname = 'eroded images'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
@@ -171,13 +171,16 @@ def get_student_answer(paper,imageName):
                     mask= cv2.bitwise_and(eroded, mask)
                     total= cv2.countNonZero(mask)
                     bubbles.append(total)
-                bubbled=None
-                count_chosen=0
+                
                 mask_mean=np.mean(mask_ones)
-                for j,total in enumerate(bubbles):
-                    if (total>=mask_mean*.2):
-                        bubbled= j
-                        count_chosen+=1
+                bubbles=np.array(bubbles)/mask_mean
+                bubbled=np.argmax(bubbles)
+                total=np.amax(bubbles)
+                count_chosen=0
+                if(total>0.7):
+                    count_chosen=((total-bubbles)<=0.3).sum()
+                else:
+                    count_chosen=((total-bubbles)<=0.15).sum()
                 final_ans=(ord('X')-ord('A')) if(count_chosen!=1) else bubbled
                 answers.append(chr(final_ans+ord('A')))
     
