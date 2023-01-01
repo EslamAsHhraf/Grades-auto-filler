@@ -3,6 +3,15 @@ import numpy as np
 from skimage.morphology import skeletonize,thin
 from imutils import contours as imcnts
 
+ # Filter Borders
+def Filter_Borders(img):
+    border_mask=np.zeros_like(img)
+    img_height,img_width,=img.shape
+    border_y=int(.1*img_height)
+    border_x=int(.1*img_width)
+    border_mask[border_y:img_height-border_y,border_x:img_width-border_x]=255
+    img=img&border_mask
+    return img
 ####################### detact square ####################
 def detact_square(img):
 
@@ -13,12 +22,7 @@ def detact_square(img):
     ret, img = cv2.threshold(img, 127, 255, 0)
     img=np.invert(img)
     # Filter Borders
-    border_mask=np.zeros_like(img)
-    img_height,img_width,=img.shape
-    border_y=int(.1*img_height)
-    border_x=int(.1*img_width)
-    border_mask[border_y:img_height-border_y,border_x:img_width-border_x]=255
-    img=img&border_mask
+    img=Filter_Borders(img)
 
     ## Calculate kernel length
     kernel_length = np.array(img).shape[1]//20
@@ -68,12 +72,7 @@ def deatact_Vertical_lines(img):
     ret, img = cv2.threshold(img, 127, 255, 0)
     img=np.invert(img)
     # Filter Borders
-    border_mask=np.zeros_like(img)
-    img_height,img_width,=img.shape
-    border_y=int(.1*img_height)
-    border_x=int(.1*img_width)
-    border_mask[border_y:img_height-border_y,border_x:img_width-border_x]=255
-    img=img&border_mask
+    img=Filter_Borders(img)
 
     ## filter small points in cell (noise)
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 3))
@@ -103,12 +102,7 @@ def deatact_Horizontal_lines(img):
     ret, img = cv2.threshold(img, 127, 255, 0)
     img=np.invert(img)
     # Filter Borders
-    border_mask=np.zeros_like(img)
-    img_height,img_width,=img.shape
-    border_y=int(.1*img_height)
-    border_x=int(.1*img_width)
-    border_mask[border_y:img_height-border_y,border_x:img_width-border_x]=255
-    img=img&border_mask
+    img=Filter_Borders(img)
     
     ## filter small points in cell (noise)
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (4, 2))
@@ -192,13 +186,8 @@ def detect_check_mark(img):
     img=cv2.adaptiveThreshold(img, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, 
              cv2.THRESH_BINARY_INV, 51, 15)
     
-    # Filter Borders
-    border_mask=np.zeros_like(img)
-    img_height,img_width,=img.shape
-    border_y=int(.1*img_height)
-    border_x=int(.1*img_width)
-    border_mask[border_y:img_height-border_y,border_x:img_width-border_x]=255
-    img=img&border_mask
+   
+    img=Filter_Borders(img)
     img_copy=img.copy()
     img=thin(img,1000000000).astype(np.uint8)
     img*=255
