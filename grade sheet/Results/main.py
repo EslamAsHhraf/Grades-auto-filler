@@ -85,7 +85,3 @@ def Run_one_bubble_sheet(path):
         answer_sheet.write(i+1, 0, 'question'+str(i))
         answer_sheet.write(i+1, 1, ans)
     wb.save('xlwt example.xls')
-# try:
-#     run_all_bubble_sheets()
-# except:
-#     print("error")
