@@ -302,7 +302,7 @@ def detact_symbols(sheet,row,col,badFontStyle):
     #################  check square #################
     result=detact_square(img=img)
     if(result!=-1):
-        sheet.write(row, col,'square '+ str(result))
+        sheet.write(row, col, result)
         return
     
     #################  check check marks #################
@@ -314,13 +314,13 @@ def detact_symbols(sheet,row,col,badFontStyle):
     #################  check Vertical lines #################
     result=deatact_Vertical_lines(img=img)
     if(result!=-1):
-        sheet.write(row, col,'Vertical_lines '+ str(result))
+        sheet.write(row, col, result)
         return
 
     #################  check Horizontal lines #################
     result=deatact_Horizontal_lines(img=img)
     if(result!=-1):
-        sheet.write(row, col,'Horizontal_lines '+ str(result))
+        sheet.write(row, col,result)
         return
 
     #################  check empty cell #################

@@ -71,9 +71,16 @@ def upload_file_Button():
             e1.image = img # keep a reference! by attaching it to a widget attribute
             e1['image']=img # Show Image
 
-            GradesSheet(path=f)
+            Run_one_bubble_sheet(path=f)
         
         l1_Bubble.config(text='Results Done ✅')
+
+def upload_ALL_file_Button():
+        folder = tk.filedialog.askdirectory()
+        print("cas",folder)
+        run_all_bubble_sheets(path=folder+'/')
+        
+
 
 
 def Bubble_Window():
@@ -81,7 +88,7 @@ def Bubble_Window():
         global l1_Bubble,my_w_Bubble
         my_w_Bubble = tk.Toplevel()
         my_w_Bubble.geometry("710x400")  # Size of the window
-        my_w_Bubble.title('Grades sheet')
+        my_w_Bubble.title('Bubble sheet')
         my_font1=('times', 20, 'bold')
         my_font2=('times', 12, 'bold')
         l1_Bubble = tk.Label(my_w_Bubble,text='Upload your Sheet 😀',font=my_font1,background='white')
@@ -93,7 +100,7 @@ def Bubble_Window():
         l2_Bubble = tk.Label(my_w_Bubble,text='Wait Results....',font=my_font2,background='white')
         l2_Bubble.grid(row=5,column=10)
         b2_Bubble = tk.Button(my_w_Bubble, text='run all bubble sheets',background='#e2d3e4',
-        width=20,command = lambda:run_all_bubble_sheets())
+        width=20,command = lambda:upload_ALL_file_Button())
         b2_Bubble.grid(row=3,column=10)
         my_w_Bubble.mainloop()
     except:
