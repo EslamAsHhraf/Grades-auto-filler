@@ -77,22 +77,27 @@ def upload_file_Button():
 
 
 def Bubble_Window():
-    global l1_Bubble,my_w_Bubble
-    my_w_Bubble = tk.Toplevel()
-    my_w_Bubble.geometry("710x400")  # Size of the window
-    my_w_Bubble.title('Grades sheet')
-    my_font1=('times', 20, 'bold')
-    my_font2=('times', 12, 'bold')
-    l1_Bubble = tk.Label(my_w_Bubble,text='Upload your Sheet 😀',font=my_font1,background='white')
-    l1_Bubble.grid(row=1,column=10)
-    b1_Bubble = tk.Button(my_w_Bubble, text='Upload image',background='#e2d3e4',
-    width=20,command = lambda:upload_file_Button())
-    b1_Bubble.grid(row=2,column=10)
-    my_w_Bubble['bg']='#2a5289'
-    l2_Bubble = tk.Label(my_w_Bubble,text='Wait Results....',font=my_font2,background='white')
-    l2_Bubble.grid(row=5,column=10)
-
-    my_w_Bubble.mainloop()
+    try:
+        global l1_Bubble,my_w_Bubble
+        my_w_Bubble = tk.Toplevel()
+        my_w_Bubble.geometry("710x400")  # Size of the window
+        my_w_Bubble.title('Grades sheet')
+        my_font1=('times', 20, 'bold')
+        my_font2=('times', 12, 'bold')
+        l1_Bubble = tk.Label(my_w_Bubble,text='Upload your Sheet 😀',font=my_font1,background='white')
+        l1_Bubble.grid(row=1,column=10)
+        b1_Bubble = tk.Button(my_w_Bubble, text='Upload image',background='#e2d3e4',
+        width=20,command = lambda:upload_file_Button())
+        b1_Bubble.grid(row=2,column=10)
+        my_w_Bubble['bg']='#2a5289'
+        l2_Bubble = tk.Label(my_w_Bubble,text='Wait Results....',font=my_font2,background='white')
+        l2_Bubble.grid(row=5,column=10)
+        b2_Bubble = tk.Button(my_w_Bubble, text='run all bubble sheets',background='#e2d3e4',
+        width=20,command = lambda:run_all_bubble_sheets())
+        b2_Bubble.grid(row=3,column=10)
+        my_w_Bubble.mainloop()
+    except:
+        print("error")
 
 
 def main():

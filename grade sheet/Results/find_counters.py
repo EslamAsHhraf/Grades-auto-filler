@@ -77,7 +77,7 @@ def cut_contours(img_final_bin,orignal_img,loaded_svc, loaded_knn, loaded_rf, lo
     num_hor=len(rows)
     num_ver=len(contours)//num_hor
     wb = xlwt.Workbook()
-    sheet = wb.add_sheet('Sheet 15',cell_overwrite_ok=True)
+    sheet = wb.add_sheet('Greed sheet',cell_overwrite_ok=True)
     badBG = xlwt.Pattern()
     badBG.pattern = badBG.SOLID_PATTERN
     badBG.pattern_fore_colour = 2
