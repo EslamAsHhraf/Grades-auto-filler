@@ -23,13 +23,13 @@
 #### 1. Extract the paper from the image.
 
 <table>
-<tr style="height:500px">
+<tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg">
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg" height=500>
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg">
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg" height=500>
 
 </td>
 </tr>
