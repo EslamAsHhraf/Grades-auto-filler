@@ -23,13 +23,13 @@
 #### 1. Extract the paper from the image.
 
 <table>
-<tr>
-<td>
+<tr style="display:flex;">
+<td style="display:flex;height:400px;">
 
 ![1  original](./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg)
 
 </td>
-<td>
+<td style="display:flex;height:400px;">
 
 ![1  paper](./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg)
 
