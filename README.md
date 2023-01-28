@@ -24,7 +24,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 
 #### 1. Extract the paper from the image.
 
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1  original](./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg)
 
@@ -35,7 +35,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 
 #### 2. Convert the RGB image to gray scale image
 
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![2  gray scale image](./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg)
 
@@ -46,7 +46,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 
 #### 3. Convert the image to binary image using local thresholding
 
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1  thres1](./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg)
 
@@ -55,7 +55,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 </div>
 
 #### 4. Extract the ID box from the paper and erase it
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![ID Box](./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg)
 
@@ -64,7 +64,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 </div>
 
 #### 5. Erode the image to get rid of false chosen bubbles
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg)
 
@@ -73,7 +73,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 </div>
 
 #### 6. Detect the external contours an draw them on the original image
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg)
 
@@ -93,7 +93,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 #### 12. Collect all contours areas in array and calculate the average area (the mean of areas should be very close to the bubbles area because the most frequent contours are the bubbles contours).
 
 #### 13. Another filter to the output contours that resulted from the first filter by check if the area of each contour is within 30% error with the average contour area then bubbles contours are only residual contours
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg)
 
@@ -104,7 +104,7 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 #### 14. Sort the contours from top to bottom
 
 #### 15. Calculate the number of choices and the number of question in each row by using x and y coordinates of each bubble (bubbles belong to the same question are colored with the same color).
-<div align="center" style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg)
 
