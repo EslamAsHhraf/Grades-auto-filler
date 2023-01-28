@@ -23,24 +23,24 @@ colors=[(255,0,0)
 ,(0,0,128),
        (255,215,0)]
 
-def get_student_answer(paper,imageName):
+def get_student_answer_without_ID(paper,imageName):
     # Get the gray scale paper 
     gray_scale_paper = cv2.cvtColor(paper,cv2.COLOR_BGR2GRAY)
-    dirname = 'gray scale images'
+    dirname = './Results/gray scale images'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),gray_scale_paper)
 
     # Get binary paper
     thresholded=cv2.adaptiveThreshold(gray_scale_paper, 255, cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV, 73, 5)
-    dirname = 'adaptive thresholded images'
+    dirname = './Results/adaptive thresholded images'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),thresholded)
 
     # Get The Eroded Image To Be Used In Calculations Of Answers
     eroded=cv2.erode(thresholded,np.ones((3,3)),iterations=1)
-    dirname = 'eroded images'
+    dirname = './Results/eroded images'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),eroded)
@@ -73,7 +73,7 @@ def get_student_answer(paper,imageName):
 
     temp=paper.copy()
     cv2.drawContours(temp,pre_question_cnts,-1,(0,255,0), 5)
-    dirname = 'all circles contours'
+    dirname = './Results/all circles contours'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),temp)
@@ -88,7 +88,7 @@ def get_student_answer(paper,imageName):
 
     temp=paper.copy()
     cv2.drawContours(temp,pre_question_cnts,-1,(0,255,0), 5)
-    dirname = 'bubbles contours'
+    dirname = './Results/bubbles contours'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),temp)
@@ -186,7 +186,7 @@ def get_student_answer(paper,imageName):
     
     # Draw The Questions Contours
 
-    dirname = 'questions'
+    dirname = './Results/questions'
     if not os.path.isdir(f'./{dirname}'):
         os.mkdir(dirname)
     cv2.imwrite(os.path.join(dirname, imageName),temp)
