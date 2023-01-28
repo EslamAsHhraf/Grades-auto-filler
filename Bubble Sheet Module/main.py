@@ -36,4 +36,4 @@ def run_all_bubble_sheets():
 try:
     run_all_bubble_sheets()
 except:
-    print("error")
+    print("Error")
