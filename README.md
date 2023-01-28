@@ -22,29 +22,38 @@
 
 #### 1. Extract the paper from the image.
 
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
-<div>
+<table>
+<tr>
+<td>
 
 ![1  original](./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg)
 
-</div>
-<div>
+</td>
+<td>
 
 ![1  paper](./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg)
 
-</div>
-</div>
+</td>
+</tr>
+</table>
 
 
 #### 2. Convert the RGB image to gray scale image
 
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<table>
+<tr>
+<td>
 
 ![2  gray scale image](./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg)
 
+</td>
+<td>
+
 ![1  thres2](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 
 #### 3. Convert the image to binary image using local thresholding
