@@ -42,12 +42,12 @@
 <tr>
 <td>
 
-![2  gray scale image](./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg" height=500>
 
 </td>
 <td>
 
-![1  thres2](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg" height=500>
 
 </td>
 </tr>
@@ -58,14 +58,10 @@
 <table>
 <tr>
 <td>
-
-![1  thres1](./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg)
-
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg" height=500>
 </td>
 <td>
-
-![1  thres2](./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg)
-
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg" height=500>
 </td>
 </tr>
 </table>
@@ -74,13 +70,12 @@
 <table>
 <tr>
 <td>
-
-![ID Box](./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg" height=200>
 
 </td>
 <td>
 
-![Paper](./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg" height=500>
 
 </td>
 </tr>
@@ -91,12 +86,11 @@
 <tr>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg)
-
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg" height=500>
 </td>
 <td>
 
-![2](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg" height=500>
 
 </td>
 </tr>
@@ -108,12 +102,11 @@
 <tr>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg" height=500>
 
 </td>
 <td>
-
-![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg" height=500>
 
 </td>
 </tr>
@@ -135,12 +128,12 @@
 <tr>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg" height=500>
 
 </td>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg" height=500>
 
 </td>
 </tr>
@@ -154,12 +147,12 @@
 <tr>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg" height=500>
 
 </td>
 <td>
 
-![1](./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg)
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg" height=500>
 
 </td>
 </tr>
