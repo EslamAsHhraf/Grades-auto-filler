@@ -57,41 +57,69 @@
 
 
 #### 3. Convert the image to binary image using local thresholding
-
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<table>
+<tr>
+<td>
 
 ![1  thres1](./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg)
 
+</td>
+<td>
+
 ![1  thres2](./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 4. Extract the ID box from the paper and erase it
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<table>
+<tr>
+<td>
 
 ![ID Box](./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg)
 
+</td>
+<td>
+
 ![Paper](./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 5. Erode the image to get rid of false chosen bubbles
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<table>
+<tr>
+<td>
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg)
 
+</td>
+<td>
+
 ![2](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 6. Detect the external contours an draw them on the original image
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+
+<table>
+<tr>
+<td>
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg)
 
+</td>
+<td>
+
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 7. Calculate the bounding rectangle of the contours and get its coordinates, width and height and calculate aspect ratio
 
@@ -105,24 +133,39 @@
 #### 12. Collect all contours areas in array and calculate the average area (the mean of areas should be very close to the bubbles area because the most frequent contours are the bubbles contours).
 
 #### 13. Another filter to the output contours that resulted from the first filter by check if the area of each contour is within 30% error with the average contour area then bubbles contours are only residual contours
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<table>
+<tr>
+<td>
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg)
 
+</td>
+<td>
+
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 14. Sort the contours from top to bottom
 
 #### 15. Calculate the number of choices and the number of question in each row by using x and y coordinates of each bubble (bubbles belong to the same question are colored with the same color).
-<div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+
+<table>
+<tr>
+<td>
 
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg)
 
+</td>
+<td>
+
 ![1](./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg)
 
-</div>
+</td>
+</tr>
+</table>
 
 #### 16. Iterate over each row and sort the contours from left to right.
 
