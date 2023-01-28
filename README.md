@@ -2,8 +2,6 @@
 <a href="" rel="noopener">
   
   ![Grade Autofiller](https://t3.ftcdn.net/jpg/00/33/15/36/240_F_33153607_eYe0x5YRdY2BQYcco5eDkfP9SWABvqtQ.jpg)
-
-https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 </div>
 
 <h2 align="center">Grade Autofiller</h2>
@@ -25,11 +23,16 @@ https://img.shields.io/codeclimate/issues/AdhamAliAbdelAal/Grades-autofiller
 #### 1. Extract the paper from the image.
 
 <div align="center" style="display:flex;flex-wrap:nowrap; justify-content:space-between; align-items:center; gap:10px">
+<div>
 
 ![1  original](./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg)
 
+</div>
+<div>
+
 ![1  paper](./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg)
 
+</div>
 </div>
 
 
