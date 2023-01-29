@@ -6,7 +6,20 @@
 
 <h2 align="center">Grade Autofiller</h2>
 
-## About
+## Table of Contents
+
+  * [About](#about)
+  * [Bubble Sheet](#bubble-sheet)
+  * [Grades Sheet](#grade-sheet)
+  * [Digits Detection Explanation](#algorithm-explanation)
+  * [Installation](#installation)
+  * [Running](#running)
+  * [Contributors](#contributors)
+
+
+## <a name="about"></a> About
+
+
 > **Grade Autofiller** is an assistant to TAs and Professors in our department (Computer Department). It should provide an easy way to fill the grades electronically, and it should be able to correct MCQ bubble sheet exams automatically.
 
 
@@ -15,6 +28,8 @@
 ![image](./Bubble%20Sheet%20Module/readme%20imgs/flowchart.png)
 
 </div>
+
+# <a name="bubble-sheet"></a> Bubble Sheet
 
 ## How the bubble sheet corrector works
 > List of steps we take to process the input sheet and get our results
@@ -166,8 +181,42 @@
 
 #### 19. Calculate the number of rows and map the result array to the real dat
 
+<hr>
 
-#### Installation
+# <a name="grade-sheet"></a> Grades Sheet
+
+## How the Grades Sheet is processed
+> List of steps taken to process the Grades Sheet
+
+#### 1. Paper Extraction and Image Warping
+
+#### 2. Table and Cells Detection
+
+#### 3. ID Detection
+> 2 Methods were used: &emsp; 
+> * OCR
+> * Classifiers
+
+#### 4. Handwritten Digits Detection
+
+#### 5. Signs Detection
+> 6 different signs
+
+
+# <a name="algorithm-explanation"></a> Digits Detection
+> Data Acquisition and Model Training for Digits Detection (Digital and Handwritten)
+
+* [Used Dataset](https://www.kaggle.com/competitions/digit-recognizer)
+
+The main idea is to train different models then use a polling system to collectively increase the accuracy of the system — beyond the accuracy of each on their own.
+
+Not much Pre-Processing was needed for the handwritten digits, just a noise reduction filter.
+
+
+
+
+
+## <a name="installation"></a> Installation
 
 1. **_Clone the repository_**
 
@@ -180,7 +229,7 @@ $ cd '.\Bubble Sheet Module\'
 ```
 
 
-#### Running
+## <a name="running"></a> Running
 
 1. **_Put you input files inside testCases folder_**
 2. **_Your answers will be found in Results folder_**
@@ -190,7 +239,7 @@ $ cd '.\Bubble Sheet Module\'
 python main.py
 ```
 
-## Contributing
+## <a name="contributors"></a> Contributing
 
 > Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -207,4 +256,4 @@ python main.py
  </table>
 
 #### Licence
-[MIT Licence](https://github.com/AbdallahHemdan/Orchestra/blob/master/LICENSE)
+[MIT Licence](https://github.com/AdhamAliAbdelAal/Grades-autofiller/blob/master/LICENSE)
