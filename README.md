@@ -11,6 +11,7 @@
   * [About](#about)
   * [Bubble Sheet](#bubble-sheet)
   * [Grades Sheet](#grade-sheet)
+  * [Paper Extraction Explanation](#warping)
   * [Digits Detection Explanation](#algorithm-explanation)
   * [Installation](#installation)
   * [Running](#running)
