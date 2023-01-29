@@ -202,15 +202,24 @@
 #### 5. Signs Detection
 > 6 different signs
 
+# <a name="warping"></a> Warping & Paper Extraction
 
+#### 1. Applied Canny Edge Detector followed by Dilation to connect broken edges
+  
+#### 2. Extracted Contours, then extracted the largest based on area (the paper contour)
+  
+#### 3. Measured width and height of the contour (using the 4 corners)
+ 
+#### 4. Calculated coordinates for the new points (warped), and transformed the original points to these coordinates.
+  
 # <a name="algorithm-explanation"></a> Digits Detection
 > Data Acquisition and Model Training for Digits Detection (Digital and Handwritten)
 
 * [Used Dataset](https://www.kaggle.com/competitions/digit-recognizer)
 
-The main idea is to train different models then use a polling system to collectively increase the accuracy of the system — beyond the accuracy of each on their own.
+#### The main idea is to train different models then use a polling system to collectively increase the accuracy of the system — beyond the accuracy of each on their own.
 
-Not much Pre-Processing was needed for the handwritten digits, just a noise reduction filter.
+#### Not much Pre-Processing was needed for the handwritten digits, just a noise reduction filter.
 
 
 
