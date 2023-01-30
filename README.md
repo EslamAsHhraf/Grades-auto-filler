@@ -264,6 +264,3 @@ python main.py
      
   </tr>
  </table>
-
-#### Licence
-[MIT Licence](https://github.com/AdhamAliAbdelAal/Grades-autofiller/blob/master/LICENSE)
