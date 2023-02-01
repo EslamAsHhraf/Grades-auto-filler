@@ -220,9 +220,24 @@
 
 #### The main idea is to train different models then use a polling system to collectively increase the accuracy of the system — beyond the accuracy of each on their own.
 
-#### Not much Pre-Processing was needed for the handwritten digits, just a noise reduction filter.
+### Single Digits Detection
 
+#### 1. Not much Pre-Processing was needed for the single handwritten digits, just a noise reduction filter.
 
+#### 2. Computed HoG of each digit picture and passed to the classifiers to determine the output.
+
+### ID Detection
+
+#### 1. Extracted Contours [For Digits], Then Filtered out very small contours [Not Digits]
+> Now, we have contours containing single digits or a group of connected digits.
+
+#### 2. Get the Average Width of all contours
+
+#### 3. Divide the each **contour width** by the **average width** [integer Division]; to know how many digits are in each picture
+
+#### 4. If the quotient of the division is less than a certain threshold, then it contains a single digit. Otherwise, divide the contour into a number of smaller contours [each containing a single digit] according to the quotient.
+
+#### 5. Computed HoG of each digit picture and passed to the classifiers to determine the output.
 
 
 
