@@ -1,21 +1,27 @@
+<div align= >
+
+# <img align=center width=75px height=75px src="https://media4.giphy.com/media/S3vkOnyeiqqUjGOc9S/giphy.webp?cid=ecf05e47bcr7g2gaapy8yofnt3etgvfg5ync8azjyq09fqz6&rid=giphy.webp&ct=s"> Grade Autofiller
+
+
+</div>
 <div align="center">
-<a href="" rel="noopener">
-  
-  ![Grade Autofiller](https://t3.ftcdn.net/jpg/00/33/15/36/240_F_33153607_eYe0x5YRdY2BQYcco5eDkfP9SWABvqtQ.jpg)
+   <img align="center"  width="525px" src="https://res.cloudinary.com/teepublic/image/private/s--Zi78NcGO--/t_Resized%20Artwork/c_fit,g_north_west,h_1054,w_1054/co_ffffff,e_outline:53/co_ffffff,e_outline:inner_fill:53/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1630566782/production/designs/24055931_0.jpg" alt="logo">
+
+
+### ”Lets Go, Start New Adventure.⚡“
+   
 </div>
 
-<h2 align="center">Grade Autofiller</h2>
+## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
 
-## Table of Contents
-
-  * [About](#about)
-  * [Bubble Sheet](#bubble-sheet)
-  * [Grades Sheet](#grade-sheet)
-  * [Paper Extraction Explanation](#warping)
-  * [Digits Detection Explanation](#algorithm-explanation)
-  * [Installation](#installation)
-  * [Running](#running)
-  * [Contributors](#contributors)
+- <a href ="#about"> 📙 About</a>
+- <a href ="#bubble-sheet"> 💻 Get Started</a>
+- <a href ="#modules"> 🌎 Modules</a>
+  -  <a href="#bubble-sheet">  Grade Sheet </a>
+  -  <a href="#grade-sheet">  Bubble Sheet </a>
+- <a href ="#contributors"> ✨ Contributors</a>
+- <a href ="#license"> 🔒 License</a>
+<hr style="background-color: #4b4c60"></hr>
 
 
 ## <a name="about"></a> About
@@ -41,11 +47,11 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg" height=250>
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg" height=250>
 
 </td>
 </tr>
@@ -58,12 +64,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg" height=250>
 
 </td>
 </tr>
@@ -74,10 +80,10 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg" height=250>
 </td>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg" height=250>
 </td>
 </tr>
 </table>
@@ -86,12 +92,12 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg" height=200>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg" height=100>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg" height=250>
 
 </td>
 </tr>
@@ -102,11 +108,11 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg" height=250>
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg" height=250>
 
 </td>
 </tr>
@@ -118,11 +124,11 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg" height=250>
 
 </td>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg" height=250>
 
 </td>
 </tr>
@@ -144,12 +150,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg" height=250>
 
 </td>
 </tr>
@@ -163,12 +169,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg" height=500>
+<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg" height=250>
 
 </td>
 </tr>
@@ -182,7 +188,7 @@
 
 #### 19. Calculate the number of rows and map the result array to the real dat
 
-<hr>
+<hr style="background-color: #4b4c60"></hr>
 
 # <a name="grade-sheet"></a> Grades Sheet
 
