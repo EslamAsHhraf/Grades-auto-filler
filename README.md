@@ -65,7 +65,7 @@ $ cd './Code/GUI.py'
 </ol>
 <hr style="background-color: #4b4c60"></hr>
 
-# <a id="bubble-sheet"></a> Bubble Sheet
+# <a id="bubble-sheet"></a> 🫧 Bubble Sheet
 
 ## How the bubble sheet corrector works
 > List of steps we take to process the input sheet and get our results
@@ -231,7 +231,7 @@ $ cd './Code/GUI.py'
 
 <hr style="background-color: #4b4c60"></hr>
 
-# <a id="grade-sheet"></a> Grades Sheet
+# <a id="grade-sheet"></a> 📖 Grades Sheet
 
 ## How the Grades Sheet is processed
 > List of steps taken to process the Grades Sheet
