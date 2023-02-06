@@ -73,7 +73,7 @@ $ cd './Code/GUI.py'
 
 #### 1. Extract the paper from the image.
 
-<table align="center">
+<table>
 <tr>
 <td>
 <img src="./readme%20imgs/withID.jpg" height=250>
@@ -89,7 +89,7 @@ $ cd './Code/GUI.py'
 
 #### 2. Convert the RGB image to gray scale image
 
-<table align="center">
+<table>
 <tr>
 <td>
 
