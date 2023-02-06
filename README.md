@@ -315,7 +315,7 @@ Intersection Lines Detect
 #### 5. Signs Detection
 > 6 different signs
 
-<table>
+<table height="250">
 <tr>
 <th>
 Sign
@@ -343,32 +343,32 @@ Empty
 <th>
 Image
 </th>
-<td width="15%">
+<td >
 
 <img src="./readme%20imgs/square.jpg" >
 
 </td>
-<td width="15%">
+<td >
 
 <img src="./readme%20imgs/question.jpg" >
 
 </td>
-<td width="15%">
+<td>
 
 <img src="./readme%20imgs/check.jpg" >
 
 </td>
-<td width="15%">
+<td >
 
 <img src="./readme%20imgs/horizontal-lines.jpg">
 
 </td>
-<td width="15%">
+<td >
 
 <img src="./readme%20imgs/vertical-lines.jpg">
 
 </td>
-<td width="15%">
+<td>
 
 <img src="./readme%20imgs/empty.jpg">
 
