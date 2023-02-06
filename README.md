@@ -15,16 +15,16 @@
 ## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
 
 - <a href ="#about"> 📙 About</a>
-- <a href ="#bubble-sheet"> 💻 Get Started</a>
+- <a href ="#started"> 💻 Get Started</a>
 - <a href ="#modules"> 🌎 Modules</a>
-  -  <a href="#bubble-sheet">  Grade Sheet </a>
-  -  <a href="#grade-sheet">  Bubble Sheet </a>
+  -  <a href="#grade-sheet">  Grade Sheet </a>
+  -  <a href="#bubble-sheet">  Bubble Sheet </a>
 - <a href ="#contributors"> ✨ Contributors</a>
 - <a href ="#license"> 🔒 License</a>
 <hr style="background-color: #4b4c60"></hr>
 
 
-## <a name="about"></a> About
+## <a id="about"></a> About
 
 
 > **Grade Autofiller** is an assistant to TAs and Professors in our department (Computer Department). It should provide an easy way to fill the grades electronically, and it should be able to correct MCQ bubble sheet exams automatically.
@@ -32,11 +32,40 @@
 
 <div align="center">
 
-![image](./Bubble%20Sheet%20Module/readme%20imgs/flowchart.png)
+![image](./readme%20imgs/flowchart.png)
 
 </div>
 
-# <a name="bubble-sheet"></a> Bubble Sheet
+
+
+<hr style="background-color: #4b4c60"></hr>
+
+## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "started"></a>
+
+<ol>
+<li>Clone the repository
+
+<br>
+
+```sh
+$ git clone https://github.com/AdhamAliAbdelAal/Grades-autofiller.git
+```
+
+</li>
+<li>
+
+You can use and choose module from this file
+
+```sh
+$ cd './Code/GUI.py'
+```
+</li>
+
+
+</ol>
+<hr style="background-color: #4b4c60"></hr>
+
+# <a id="bubble-sheet"></a> Bubble Sheet
 
 ## How the bubble sheet corrector works
 > List of steps we take to process the input sheet and get our results
@@ -47,11 +76,11 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withID.jpg" height=250>
+<img src="./readme%20imgs/withID.jpg" height=250>
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/paper.jpg" height=250>
+<img src="./readme%20imgs/paper.jpg" height=250>
 
 </td>
 </tr>
@@ -64,12 +93,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/gray.jpg" height=250>
+<img src="./readme%20imgs/gray.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0.jpeg" height=250>
+<img src="./readme%20imgs/CameraFour0.jpeg" height=250>
 
 </td>
 </tr>
@@ -80,10 +109,10 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpg" height=250>
+<img src="./readme%20imgs/thres.jpg" height=250>
 </td>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/thres.jpeg" height=250>
+<img src="./readme%20imgs/thres.jpeg" height=250>
 </td>
 </tr>
 </table>
@@ -92,12 +121,12 @@
 <table>
 <tr>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/id%20box.jpg" height=100>
+<img src="./readme%20imgs/id%20box.jpg" height=100>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/paperwithoutbox.jpg" height=250>
+<img src="./readme%20imgs/paperwithoutbox.jpg" height=250>
 
 </td>
 </tr>
@@ -108,11 +137,11 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpg" height=250>
+<img src="./readme%20imgs/CameraFour0eroded.jpg" height=250>
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0eroded.jpeg" height=250>
+<img src="./readme%20imgs/CameraFour0eroded.jpeg" height=250>
 
 </td>
 </tr>
@@ -124,11 +153,11 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpg" height=250>
+<img src="./readme%20imgs/CameraFour0exconts.jpg" height=250>
 
 </td>
 <td>
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/CameraFour0exconts.jpeg" height=250>
+<img src="./readme%20imgs/CameraFour0exconts.jpeg" height=250>
 
 </td>
 </tr>
@@ -150,12 +179,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpg" height=250>
+<img src="./readme%20imgs/bubbles.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/bubbles.jpeg" height=250>
+<img src="./readme%20imgs/bubbles.jpeg" height=250>
 
 </td>
 </tr>
@@ -169,12 +198,12 @@
 <tr>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpg" height=250>
+<img src="./readme%20imgs/withIDquestions.jpg" height=250>
 
 </td>
 <td>
 
-<img src="./Bubble%20Sheet%20Module/readme%20imgs/withIDquestions.jpeg" height=250>
+<img src="./readme%20imgs/withIDquestions.jpeg" height=250>
 
 </td>
 </tr>
@@ -187,29 +216,206 @@
 #### 18. Check if the student select more than one choice or no choice the answer will be X but if the student select only one choice so the answer will be the character of the choice (A, B, C, etc.).
 
 #### 19. Calculate the number of rows and map the result array to the real dat
+#### 20. Output will be in excel sheet like this
+>  excel sheet name "result Grades sheet"
+
+<table>
+<tr>
+<td>
+
+<img src="./readme%20imgs/bubblesheet.png" width=150>
+
+</td>
+</tr>
+</table>
 
 <hr style="background-color: #4b4c60"></hr>
 
-# <a name="grade-sheet"></a> Grades Sheet
+# <a id="grade-sheet"></a> Grades Sheet
 
 ## How the Grades Sheet is processed
 > List of steps taken to process the Grades Sheet
 
 #### 1. Paper Extraction and Image Warping
 
+<table>
+<tr>
+<td>
+
+<img src="./readme%20imgs/testcase.jpg" height=250>
+
+</td>
+<td>
+
+<img src="./readme%20imgs/warping.jpg" height=200>
+
+</td>
+</tr>
+</table>
+
 #### 2. Table and Cells Detection
+<table>
+<tr>
+<th>
+Horizontal Lines Detect
+</th>
+<th>
+Vertical Lines Detect
+</th>
+<th>
+Intersection Lines Detect
+</th>
+</tr>
+<tr>
+<td>
+
+<img src="./readme%20imgs/horizontal_lines_img.jpg" height=200>
+
+</td>
+<td>
+
+<img src="./readme%20imgs/verticle_lines_img.jpg" height=200>
+
+</td>
+<td>
+
+<img src="./readme%20imgs/img_final_threshold.jpg" height=200>
+
+</td>
+</tr>
+</table>
 
 #### 3. ID Detection
 > 2 Methods were used: &emsp; 
 > * OCR
 > * Classifiers
 
+<table>
+<tr>
+<td>
+
+<img src="./readme%20imgs/ID.jpg" width=250>
+
+</td>
+</tr>
+</table>
+
 #### 4. Handwritten Digits Detection
+
+<table>
+<tr>
+<td>
+
+<img src="./readme%20imgs/five.jpg" width=250>
+
+</td>
+</tr>
+</table>
 
 #### 5. Signs Detection
 > 6 different signs
 
-# <a name="warping"></a> Warping & Paper Extraction
+<table>
+<tr>
+<th>
+Sign
+</th>
+<th>
+Square
+</th>
+<th>
+Question Mark
+</th>
+<th>
+Check Mark
+</th>
+<th>
+Horizontal Lines
+</th>
+<th>
+Vertical Lines
+</th>
+<th>
+Empty
+</th>
+</tr>
+<tr>
+<th>
+Image
+</th>
+<td width="15%">
+
+<img src="./readme%20imgs/square.jpg" >
+
+</td>
+<td width="15%">
+
+<img src="./readme%20imgs/question.jpg" >
+
+</td>
+<td width="15%">
+
+<img src="./readme%20imgs/check.jpg" >
+
+</td>
+<td width="15%">
+
+<img src="./readme%20imgs/horizontal-lines.jpg">
+
+</td>
+<td width="15%">
+
+<img src="./readme%20imgs/vertical-lines.jpg">
+
+</td>
+<td width="15%">
+
+<img src="./readme%20imgs/empty.jpg">
+
+</td>
+</tr>
+
+<tr>
+<th>
+Output
+</th>
+<td>
+0
+</td>
+<td>
+empty cell with a red background color
+</td>
+<td>
+5
+</td>
+<td>
+ (5 - i) where i is the number of lines
+</td>
+<td>
+ number of lines
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+</table>
+
+
+#### 6. Output will be in excel sheet like this
+>  excel sheet name "result Grades sheet"
+
+<table>
+<tr>
+<td>
+
+<img src="./readme%20imgs/excellsheet.png" width=250>
+
+</td>
+</tr>
+</table>
+
+## <a name="warping"></a> Warping & Paper Extraction
 
 #### 1. Applied Canny Edge Detector followed by Dilation to connect broken edges
   
@@ -219,7 +425,7 @@
  
 #### 4. Calculated coordinates for the new points (warped), and transformed the original points to these coordinates.
   
-# <a name="algorithm-explanation"></a> Digits Detection
+## <a name="algorithm-explanation"></a> Digits Detection
 > Data Acquisition and Model Training for Digits Detection (Digital and Handwritten)
 
 * [Used Dataset](https://www.kaggle.com/competitions/digit-recognizer)
@@ -247,30 +453,8 @@
 
 
 
-## <a name="installation"></a> Installation
 
-1. **_Clone the repository_**
-
-```sh
-$ git clone https://github.com/AdhamAliAbdelAal/Grades-autofiller.git
-```
-2. **_Navigate to repository directory_**
-```sh
-$ cd '.\Bubble Sheet Module\'
-```
-
-
-## <a name="running"></a> Running
-
-1. **_Put you input files inside testCases folder_**
-2. **_Your answers will be found in Results folder_**
-
-3. **_Running_**
-```sh
-python main.py
-```
-
-## <a name="contributors"></a> Contributing
+## <a id="contributors"></a> Contributing
 
 > Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -282,6 +466,9 @@ python main.py
     <td align="center"><a href="https://github.com/MennaTalhHossamAlden"><img src="https://avatars.githubusercontent.com/u/76497207?v=4" width="150px;" alt=""/><br /><sub><b>Menatalh Hossamalden</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/EslamAsHhraf"><img src="https://avatars.githubusercontent.com/u/71986226?v=4" width="150px;" alt=""/><br /><sub><b>Eslam Ashraf</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/MohamedWw"><img src="https://avatars.githubusercontent.com/u/64079821?v=4" width="150px;" alt=""/><br /><sub><b>Mohamed Walid</b></sub></a><br /></td>
-     
   </tr>
  </table>
+
+## 🔒 License <a id ="license"></a>
+
+> **Note**: This software is licensed under MIT License, See [License](https://github.com/AdhamAliAbdelAal/Grades-autofiller/blob/master/LICENSE) for more information ©Mohamed Walid.
