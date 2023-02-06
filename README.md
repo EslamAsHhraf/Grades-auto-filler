@@ -215,7 +215,7 @@ $ cd './Code/GUI.py'
 
 #### 18. Check if the student select more than one choice or no choice the answer will be X but if the student select only one choice so the answer will be the character of the choice (A, B, C, etc.).
 
-#### 19. Calculate the number of rows and map the result array to the real dat
+#### 19. Calculate the number of rows and map the result array to the real data
 #### 20. Output will be in excel sheet like this
 >  excel sheet name "result Grades sheet"
 
@@ -224,6 +224,12 @@ $ cd './Code/GUI.py'
 <td>
 
 <img src="./readme%20imgs/bubblesheet.png" width=150>
+
+</td>
+
+<td>
+
+<img src="./readme%20imgs/CameraFour0.xls  [Compatibility Mode] - Excel 2_6_2023 3_03_59 AM.png" height=370 width=150>
 
 </td>
 </tr>
