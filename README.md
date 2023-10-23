@@ -1,6 +1,6 @@
 <div align= >
 
-# <img align=center width=75px height=75px src="https://media4.giphy.com/media/S3vkOnyeiqqUjGOc9S/giphy.webp?cid=ecf05e47bcr7g2gaapy8yofnt3etgvfg5ync8azjyq09fqz6&rid=giphy.webp&ct=s"> Grade Autofiller
+# 📄 Grade Autofiller
 
 
 </div>
@@ -12,7 +12,7 @@
 </div>
 <br>
 
-## <img align= center width=50px height=50px src="https://thumbs.gfycat.com/HeftyDescriptiveChimneyswift-size_restricted.gif"> Table of Contents
+## 📝 Table of Contents
 
 - <a href ="#about"> 📙 About</a>
 - <a href ="#started"> 💻 Get Started</a>
@@ -22,9 +22,9 @@
 - <a href ="#contributors"> ✨ Contributors</a>
 - <a href ="#license"> 🔒 License</a>
 <hr style="background-color: #4b4c60"></hr>
+<a id="about"></a>
 
-
-## <a id="about"></a> About
+## 📙  About
 
 
 > **Grade Autofiller** is an assistant to TAs and Professors in our department (Computer Department). It should provide an easy way to fill the grades electronically, and it should be able to correct MCQ bubble sheet exams automatically.
@@ -40,7 +40,7 @@
 
 <hr style="background-color: #4b4c60"></hr>
 
-## <img  align= center width=50px height=50px src="https://c.tenor.com/HgX89Yku5V4AAAAi/to-the-moon.gif"> Get Started <a id = "started"></a>
+## 🚀 Get Started <a id = "started"></a>
 
 <ol>
 <li>Clone the repository
@@ -460,7 +460,7 @@ empty cell with a red background color
 
 
 
-## <a id="contributors"></a> Contributing
+## 👑 <a id="contributors"></a> Contributing
 
 > Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
